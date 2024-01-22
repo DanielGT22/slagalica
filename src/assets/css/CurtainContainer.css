@@ -1,0 +1,107 @@
+/* CurtainContainer.css */
+.curtain-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 3; /* Set a higher z-index to make sure the curtain is above other elements */
+    display: flex; /* Use flexbox to avoid pushing content to the right */
+}
+
+.curtain-left {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+    background-color: #ffcc00; 
+   background: rgb(36,1,0);
+   background: linear-gradient(90deg, 
+   rgba(255,0,0,1) 0%, 
+   rgba(36,1,0,1) 2%, 
+   rgba(255,0,0,1) 4%, 
+   rgba(36,1,0,1) 6%, 
+   rgba(255,0,0,1) 8%, 
+   rgba(36,1,0,1) 11%, 
+   rgba(255,0,0,1) 13%, 
+   rgba(36,1,0,1) 15%, 
+   rgba(255,0,0,1) 18%, 
+   rgba(36,1,0,1) 21%, 
+   rgba(255,0,0,1) 23%, 
+   rgba(36,1,0,1) 25%, 
+   rgba(255,0,0,1) 28%, 
+   rgba(36,1,0,1) 30%, 
+   rgba(255,0,0,1) 33%, 
+   rgba(36,1,0,1) 35%, 
+   rgba(255,0,0,1) 37%, 
+   rgba(36,1,0,1) 39%, 
+   rgba(255,0,0,1) 43%, 
+   rgba(36,1,0,1) 46%, 
+   rgba(255,0,0,1) 49%, 
+   rgba(36,1,0,1) 53%, 
+   rgba(255,0,0,1) 57%, 
+   rgba(36,1,0,1) 60%, 
+   rgba(255,0,0,1) 63%, 
+   rgba(36,1,0,1) 67%, 
+   rgba(255,0,0,1) 71%, 
+   rgba(36,1,0,1) 74%, 
+   rgba(255,0,0,1) 77%, 
+   rgba(36,1,0,1) 80%, 
+   rgba(255,0,0,1) 83%, 
+   rgba(36,1,0,1) 86%, 
+   rgba(255,0,0,1) 89%, 
+   rgba(36,1,0,1) 92%, 
+   rgba(255,0,0,1) 95%, 
+   rgba(36,1,0,1) 99%);  
+     transition: transform 2s ease-in-out;
+}
+.curtain-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+   background: rgb(36,1,0);
+   background: linear-gradient(90deg, rgba(36,1,0,1) 0%,
+    rgba(255,0,0,1) 2%, rgba(36,1,0,1) 4%,
+     rgba(255,0,0,1) 6%, rgba(36,1,0,1) 8%,
+      rgba(255,0,0,1) 11%, rgba(36,1,0,1) 13%,
+       rgba(255,0,0,1) 15%, rgba(36,1,0,1) 18%,
+        rgba(255,0,0,1) 21%, rgba(36,1,0,1) 23%, 
+        rgba(255,0,0,1) 25%, rgba(36,1,0,1) 28%,
+           rgba(255,0,0,1) 30%, rgba(36,1,0,1) 33%,
+    rgba(255,0,0,1) 35%, rgba(36,1,0,1) 37%,
+     rgba(255,0,0,1) 39%, rgba(36,1,0,1) 43%,
+      rgba(255,0,0,1) 46%, rgba(36,1,0,1) 49%,
+ rgba(255,0,0,1) 53%, rgba(36,1,0,1) 57%,
+       rgba(255,0,0,1) 60%, rgba(36,1,0,1) 63%,
+           rgba(255,0,0,1) 67%, rgba(36,1,0,1) 71%,
+          rgba(255,0,0,1) 74%, rgba(36,1,0,1) 77%,
+          rgba(255,0,0,1) 80%, rgba(36,1,0,1) 83%,
+         rgba(255,0,0,1) 86%, rgba(36,1,0,1) 89%,
+ rgba(255,0,0,1) 92%, rgba(36,1,0,1) 95%,
+rgba(255,0,0,1) 99%);  
+transition: transform 2s ease-in-out;
+}
+
+.curtain-left {
+    left: 0;
+}
+
+.curtain-right {
+    right: 0;
+}
+
+
+.curtain-container.opened .curtain-left {
+    transform: translateX(-100%);
+}
+
+
+.curtain-container.opened .curtain-right {
+    transform: translateX(100%);
+}
+
+
+.curtain-container.opened .curtain-container{
+    
+}
