@@ -15,12 +15,11 @@ const Home = () => {
     }, []);
   
     return (
-      <div>
-           <Main />
-        <CurtainContainer curtainsOpened={curtainsOpened} />
+      <div className="h-100">
+        <Main />
         <AudioController />
-        </div>
+      </div>
     );
   };
-  
+  // <CurtainContainer curtainsOpened={curtainsOpened} />
   export default Home;

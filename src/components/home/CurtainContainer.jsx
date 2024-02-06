@@ -1,6 +1,6 @@
 // CurtainContainer.js
 import React, { useEffect, useState } from 'react';
-import '../assets/css/CurtainContainer.css';
+import '../../assets/css/CurtainContainer.css';
 
 const CurtainContainer = ({ curtainsOpened }) => {
   useEffect(() => {

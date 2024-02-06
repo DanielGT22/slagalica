@@ -1,7 +1,7 @@
 // AudioController.js
 import React, { useState } from 'react';
-import backgroundMusic from "../assets/audio/theamazing.mp3";
-import "../assets/css/Main.css"
+import backgroundMusic from "../../assets/audio/theamazing.mp3";
+import "../../assets/css/CurtainContainer.css"
 
 const AudioController = () => {
     const [audio] = useState(new Audio(backgroundMusic)); 
