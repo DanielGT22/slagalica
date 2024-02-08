@@ -48,24 +48,74 @@
   }
 
   .boxBig {
-    max-width: 500px; 
-    width: 300px;
-    max-height: 500px;
-    height: 300px; 
+    width: 100%;
+    height: 500px;
     margin: auto;
     
   }
   .chessboard {
     display: flex;
     flex-wrap: wrap;
-    width: 299px; /* Adjust according to the number of cells */
-    height: 300px; /* Adjust according to the number of cells */
+    width: 100%; /* Adjust according to the number of cells */
+    height: 100%; /* Adjust according to the number of cells */
   }
-  .chess-cell {
-    width: 25.1px; 
-    height: 25px;
-    margin: 1px; 
+  @media (min-width: 576px) {
+    .boxBig {
+      width: 100%;
+      height: 500px;
+    margin: auto;
+    }
+    
+    .chessboard {
+    width: 500px; 
+    height: 500px;
+    margin: auto;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .boxBig {
+      width: 100%;
+      height: 500px;
+    margin: auto; /* Adjust as needed */
+    }
+    
+    .chessboard {
+      width: 500px; 
+      height: 500px;
+      margin: auto;
+      }
+  }
+  
+  @media (min-width: 992px) {
+    .boxBig {
+      width: 100%;
+      height: 500px;
+    margin: auto; /* Adjust as needed */
+    }
+    
+    .chessboard {
+      width: 500px; 
+      height: 500px;
+      margin: auto;
+      }
+  }
+  
+  @media (min-width: 1200px) {
+    .boxBig {
+      max-width: 60%; /* Adjust as needed */
+      width: 40%; /* Adjust as needed */
+    }
+    
+    .chessboard {
+      width: 60%; /* Adjust as needed */
+    }
+  }
 
+  .chess-cell {
+    width: calc(100% / 11 - 2px); /* Divide the width equally among cells and subtract margin */
+    height: calc(100% / 11 - 2px); /* Divide the height equally among cells and subtract margin */
+    margin: 1px;
   }
   .nome {
     font-size: 5px;
@@ -95,4 +145,52 @@
     background-color: black;
     width: 100%;
     height: 100%;
+  }
+  #pawn-1,
+  #pawn-2,
+  #pawn-5,
+  #pawn-6 {
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    border: black solid 5px;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+
+  }
+  #pawn-3,
+  #pawn-4,
+  #pawn-7,
+  #pawn-8 {
+    background-color: blue;
+    width: 50%;
+    height: 50%;
+    border: black solid 5px;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+
+  }
+  #pawn-9,
+  #pawn-10,
+  #pawn-13,
+  #pawn-14 {
+    background-color: green;
+    width: 50%;
+    height: 50%;
+    border: black solid 5px;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+
+  }
+  #pawn-11,
+  #pawn-12,
+  #pawn-15,
+  #pawn-16 {
+    background-color: yellow;
+    width: 50%;
+    height: 50%;
+    border: black solid 5px;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+
   }
