@@ -1,12 +1,17 @@
 // Ludo.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../assets/css/Game.css";
 
 const Ludo = () => {
+  const [turnIndex, setTurnIndex] = useState(0);
+
   // Defining whose turn it currently is
-  let turn = '';
+  let turn = ["red", "blue", "yellow", "green"];
+
+  const [diceValue, setDiceValue] = useState(0);
+
 
   // Defining the selected piece
   let selectedPiece = null;
@@ -36,14 +41,9 @@ const Ludo = () => {
   };
 
   // Dice value
-  let diceValue = 0;
 
   // Function to roll the dice
-  const rollDice = () => {
-    // Generate a random number between 1 and 6
-    diceValue = Math.floor(Math.random() * 6) + 1;
-    // Update UI to reflect the new dice value
-  };
+
 
   // Defining every "Tile" that the player can't interact with
   const nonClickable = [
@@ -70,22 +70,57 @@ const Ludo = () => {
   let  targetDiv;
   // Function to select a pawn
   const selectPawn = (event, pawnId ) => {
-    event.stopPropagation();
-    selectedPawn = document.getElementById(pawnId) 
-    console.log(selectedPawn);
-    selectedPawn.remove();
+    if (diceValue === 6) {
+      console.log("6");
+      const playerColor = turn[turnIndex]; // Get the color of the current player
+      const allowedPawns = {
+        red: ["pawn-1","pawn-2","pawn-5","pawn-6"],
+        blue: ["pawn-3","pawn-4","pawn-7","pawn-8"],
+        yellow: ["pawn-11","pawn-12","pawn-15","pawn-16"], 
+        green: ["pawn-9","pawn-10","pawn-13","pawn-14"]
+      };
+      if (allowedPawns[playerColor] && allowedPawns[playerColor].includes(pawnId)) {
+        selectedPawn = document.getElementById(pawnId);
+        console.log(selectedPawn);
+        selectedPawn.remove();
+      } else {
+        console.error("You can only select a pawn that belongs to your color.");
+      }
+    }
   }
   const selectedField = (cellId) => {
     targetDiv = document.getElementById(cellId)
     console.log(targetDiv);
     if (selectedPawn) {
-      targetDiv.appendChild(selectedPawn);
+      if (movingTiles.includes(cellId)) {
+        targetDiv.appendChild(selectedPawn);
       selectedPawn = undefined; 
+      setDiceValue(0); // Reset the dice value
+      if (selectedPawn === undefined) {
+        setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+      console.log(turn[turnIndex]);
+      }
       console.log(selectedPawn);
+      }else{
+        console.log("Select Valid Tile");
+      }
+      
   } else {
       console.error("No pawn selected or already moved."); // Handle error or log message accordingly
   }
   }
+
+  const rollDice = () => {
+    const newValue = Math.floor(Math.random() * 6) + 1;
+  
+    setDiceValue(newValue);
+    if (newValue === 6) {
+      console.log("roll again");
+    } else {
+     
+      
+    }
+  };
 
   // Rendering the main grid
   const renderGrid = () => {
@@ -135,8 +170,9 @@ const Ludo = () => {
     <div>
       <Container className="text-center mt-2 container-custom-width"  >
         <h1 className="m-2">Players</h1>
-        <h2>{`Turn: ${turn}`}</h2>
-        <button onClick={rollDice}>Roll Dice</button>
+        <h2>{`Turn: ${turn[turnIndex]}`}</h2>
+        <button onClick={rollDice}>Roll Dice </button>
+       
         <p>{`Dice Value: ${diceValue}`}</p>
         {renderGrid()}
         <Row>
