@@ -6,7 +6,7 @@ import "../../assets/css/Game.css";
 
 const Ludo = () => {
   const [turnIndex, setTurnIndex] = useState(0);
-
+  const [lastCells, setLastCells] = useState({});
   // Defining whose turn it currently is
   let turn = ["red", "blue", "yellow", "green"];
 
@@ -68,58 +68,285 @@ const Ludo = () => {
 
   let  selectedPawn;
   let  targetDiv;
+  let selectedPawnFather;
   // Function to select a pawn
   const selectPawn = (event, pawnId ) => {
-    if (diceValue === 6) {
-      console.log("6");
+    if (diceValue > 0) {
       const playerColor = turn[turnIndex]; // Get the color of the current player
       const allowedPawns = {
         red: ["pawn-1","pawn-2","pawn-5","pawn-6"],
         blue: ["pawn-3","pawn-4","pawn-7","pawn-8"],
         yellow: ["pawn-11","pawn-12","pawn-15","pawn-16"], 
         green: ["pawn-9","pawn-10","pawn-13","pawn-14"]
-      };
+      }; 
+      let pawn1father = document.getElementById("pawn-1").parentElement.id
+      let pawn2father = document.getElementById("pawn-2").parentElement.id
+      let pawn3father = document.getElementById("pawn-3").parentElement.id
+      let pawn4father = document.getElementById("pawn-4").parentElement.id
+      let pawn5father = document.getElementById("pawn-5").parentElement.id
+      let pawn6father = document.getElementById("pawn-6").parentElement.id
+      let pawn7father = document.getElementById("pawn-7").parentElement.id
+      let pawn8father = document.getElementById("pawn-8").parentElement.id
+      let pawn9father = document.getElementById("pawn-9").parentElement.id
+      let pawn10father = document.getElementById("pawn-10").parentElement.id
+      let pawn11father = document.getElementById("pawn-11").parentElement.id
+      let pawn12father = document.getElementById("pawn-12").parentElement.id
+      let pawn13father = document.getElementById("pawn-13").parentElement.id
+      let pawn14father = document.getElementById("pawn-14").parentElement.id
+      let pawn15father = document.getElementById("pawn-15").parentElement.id
+      let pawn16father = document.getElementById("pawn-16").parentElement.id
+
       if (allowedPawns[playerColor] && allowedPawns[playerColor].includes(pawnId)) {
         selectedPawn = document.getElementById(pawnId);
-        console.log(selectedPawn);
-        selectedPawn.remove();
-      } else {
-        console.error("You can only select a pawn that belongs to your color.");
-      }
-    }
-  }
-  const selectedField = (cellId) => {
-    targetDiv = document.getElementById(cellId)
-    console.log(targetDiv);
-    if (selectedPawn) {
-      if (movingTiles.includes(cellId)) {
-        targetDiv.appendChild(selectedPawn);
-      selectedPawn = undefined; 
-      setDiceValue(0); // Reset the dice value
-      if (selectedPawn === undefined) {
-        setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
-      console.log(turn[turnIndex]);
-      }
-      console.log(selectedPawn);
-      }else{
-        console.log("Select Valid Tile");
-      }
+        selectedPawnFather = document.getElementById(pawnId).parentElement.id;
+        console.log(selectedPawnFather);
+        if (["pawn-1", "pawn-2", "pawn-5", "pawn-6"].includes(pawnId) &&  colors[playerColor].includes(selectedPawnFather) && diceValue === 6 ) {
+          console.log(playerColor);
+          selectedPawn.remove(); 
+          console.log(colors[playerColor]);
+          const startRed = document.getElementById(movingTiles[0]);
+          startRed.appendChild(selectedPawn); 
+          selectedPawn = undefined; 
+          setDiceValue(0); 
+          // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+          return; 
+      } 
+    
       
-  } else {
-      console.error("No pawn selected or already moved."); // Handle error or log message accordingly
-  }
-  }
+      else if (["pawn-1", "pawn-2", "pawn-5", "pawn-6"].includes(pawnId) &&  movingTiles.includes(selectedPawnFather) ) {
+
+        const index = movingTiles.indexOf(selectedPawnFather);
+        if (index !== -1 && index + diceValue < movingTiles.length) {
+          const destinationId = movingTiles[index + diceValue]; 
+          const destinationElement = document.getElementById(destinationId);
+          destinationElement.appendChild(selectedPawn);
+          selectedPawn = undefined; 
+          setDiceValue(0); 
+          // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+          if (diceValue === 6 ) {
+            rollDice();
+          } else {
+             setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+             setDiceValue(0); 
+          }
+          return;
+          
+      }
+
+        selectedPawn.remove(); 
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+    } 
+      
+      else if (["pawn-3", "pawn-4", "pawn-7", "pawn-8"].includes(pawnId)  &&  colors[playerColor].includes(selectedPawnFather) && diceValue === 6 ) {
+
+
+        selectedPawn.remove(); 
+        const startBlue = document.getElementById(movingTiles[10]);
+        startBlue.appendChild(selectedPawn); 
+    
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        
+        return; 
+        
+      } 
+     else if (["pawn-3", "pawn-4", "pawn-7", "pawn-8"].includes(pawnId) &&  movingTiles.includes(selectedPawnFather) ) {
+
+        const index = movingTiles.indexOf(selectedPawnFather);
+        if (index !== -1 && index + diceValue < movingTiles.length) {
+          const destinationId = movingTiles[index + diceValue]; // Move xx amount ahead
+          const destinationElement = document.getElementById(destinationId);
+          destinationElement.appendChild(selectedPawn);
+          
+          selectedPawn = undefined; 
+          setDiceValue(0); 
+          if (diceValue === 6 ) {
+            rollDice();
+          } else {
+             setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+             setDiceValue(0); 
+          }
+          return;
+      }
+
+        selectedPawn.remove(); 
+        
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+    } 
+      else if (["pawn-11", "pawn-12", "pawn-15", "pawn-16"].includes(pawnId)  &&  colors[playerColor].includes(selectedPawnFather) && diceValue === 6 ) {
+        selectedPawn.remove(); 
+        const startYellow = document.getElementById(movingTiles[20]);
+        startYellow.appendChild(selectedPawn); 
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+      } else if (["pawn-11", "pawn-12", "pawn-15", "pawn-16"].includes(pawnId) &&  movingTiles.includes(selectedPawnFather) ) {
+
+        const index = movingTiles.indexOf(selectedPawnFather);
+        if (index !== -1 && index + diceValue < movingTiles.length) {
+          const destinationId = movingTiles[index + diceValue]; // Move xx amount ahead
+          const destinationElement = document.getElementById(destinationId);
+          destinationElement.appendChild(selectedPawn);
+          
+          selectedPawn = undefined; 
+          setDiceValue(0); 
+          if (diceValue === 6 ) {
+            rollDice();
+          } else {
+             setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+             setDiceValue(0); 
+          }
+          return;
+      }
+
+        selectedPawn.remove(); 
+        
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+    } 
+      else if (["pawn-9", "pawn-10", "pawn-13", "pawn-14"].includes(pawnId)  &&  colors[playerColor].includes(selectedPawnFather) && diceValue === 6 ) {
+        selectedPawn.remove(); 
+        const startGreen = document.getElementById(movingTiles[30]);
+        startGreen.appendChild(selectedPawn); 
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+      }
+      else if (["pawn-9", "pawn-10", "pawn-13", "pawn-14"].includes(pawnId) &&  movingTiles.includes(selectedPawnFather) ) {
+
+        const index = movingTiles.indexOf(selectedPawnFather);
+        if (index !== -1 && index + diceValue < movingTiles.length) {
+          const destinationId = movingTiles[index + diceValue]; // Move xx amount ahead
+          const destinationElement = document.getElementById(destinationId);
+          destinationElement.appendChild(selectedPawn);
+          
+          selectedPawn = undefined; 
+          setDiceValue(0); 
+          if (diceValue === 6 ) {
+            rollDice();
+          } else {
+             setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+             setDiceValue(0); 
+          }
+          
+          return;
+          
+      }
+
+        selectedPawn.remove(); 
+        
+        selectedPawn = undefined; 
+        setDiceValue(0); 
+        // setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+        return; 
+    } 
+    else if  (diceValue !== 6 &&
+      !(
+        movingTiles.includes(pawn1father) ||
+        movingTiles.includes(pawn2father) ||
+        movingTiles.includes(pawn3father) ||
+        movingTiles.includes(pawn4father)
+      )
+  ) {
+    setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+    setDiceValue(0); 
+    } else if  (diceValue !== 6 &&
+      !(
+        movingTiles.includes(pawn5father) ||
+        movingTiles.includes(pawn6father) ||
+        movingTiles.includes(pawn7father) ||
+        movingTiles.includes(pawn8father)
+      )
+  ) {
+    setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+    setDiceValue(0); 
+    }else if  (diceValue !== 6 &&
+      !(
+        movingTiles.includes(pawn9father) ||
+        movingTiles.includes(pawn10father) ||
+        movingTiles.includes(pawn11father) ||
+        movingTiles.includes(pawn12father)
+      )
+  ) {
+    setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+    setDiceValue(0); 
+    }else if  (diceValue !== 6 &&
+      !(
+        movingTiles.includes(pawn13father) ||
+        movingTiles.includes(pawn14father) ||
+        movingTiles.includes(pawn15father) ||
+        movingTiles.includes(pawn16father)
+      )
+  ) {
+    setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+    setDiceValue(0); 
+    }
+
+
+
+    }
+  }}
+
+
+
+
+  // let currentPawn;
+  // let currentFatherElement;
+  // const selectMovingPawn =  (event, pawnId) => {
+  //      currentPawn = document.getElementById(pawnId);
+  //      currentFatherElement = document.getElementById(pawnId).parentElement;
+  //     if (movingTiles.includes(currentFatherElement)) {
+  //       currentPawn.remove();
+  //     }
+  // }
+
+  // const selectedField = (cellId) => {
+  //   targetDiv = document.getElementById(cellId)
+  //   console.log(targetDiv);
+  //   if (!colors.red.includes(selectedPawn) ) {
+  //     console.log("yah");
+  //     if (movingTiles.includes(cellId)) {
+  //       targetDiv.appendChild(selectedPawn);
+  //       selectedPawn = undefined; 
+  //     if (selectedPawn === undefined) {
+  //       setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
+  //       setDiceValue(0); // Reset the dice value
+  //     console.log(turn[turnIndex]);
+  //     }
+  //     console.log(selectedPawn);
+  //     }
+      
+  // } else {
+  //     console.error("No pawn selected or already moved."); // Handle error or log message accordingly
+  // }
+  // }
 
   const rollDice = () => {
+    console.log(diceValue);
+   if (diceValue !== 0) {
+    console.log("aa");
+   }else if (diceValue === 0){
     const newValue = Math.floor(Math.random() * 6) + 1;
   
     setDiceValue(newValue);
     if (newValue === 6) {
+    
       console.log("roll again");
     } else {
-     
-      
-    }
+ 
+   
+    }}
   };
 
   // Rendering the main grid
@@ -145,10 +372,14 @@ const Ludo = () => {
           const isClickable = !nonClickable.includes(cellId);
           grid.push(
             
-            <div key={cellId} id={cellId}  onClick={() =>selectedField(cellId) } className={`chess-cell rounded rounded-circle ${isStartingPiece ? 'has-piece' : ''}`} >
+            <div key={cellId} id={cellId}  
+            // onClick={() =>selectedField(cellId) }
+             className={`chess-cell rounded rounded-circle ${isStartingPiece ? 'has-piece' : ''}`} >
                 
-              {isStartingPiece && x++ && (<div onClick={(event) => selectPawn(event, pawnId)} id={pawnId}></div>)   }
-             
+              {isStartingPiece && x++ && (<div onClick={(event) =>  { selectPawn(event, pawnId);}} id={pawnId}>
+           
+              </div>)   }
+              
             </div>
           );
           
@@ -171,7 +402,7 @@ const Ludo = () => {
       <Container className="text-center mt-2 container-custom-width"  >
         <h1 className="m-2">Players</h1>
         <h2>{`Turn: ${turn[turnIndex]}`}</h2>
-        <button onClick={rollDice}>Roll Dice </button>
+        <button onClick= {rollDice}>   Roll Dice </button>
        
         <p>{`Dice Value: ${diceValue}`}</p>
         {renderGrid()}
