@@ -2,6 +2,10 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import pieceBlue from "../../assets/img/pieceBlue_border03.png"
+import pieceYellow from "../../assets/img/pieceYellow_border01.png"
+import pieceGreen from "../../assets/img/pieceGreen_border02.png"
+import pieceRed from "../../assets/img/pieceRed_border02.png"
 const Ludo = () => {
 
   return (
@@ -10,37 +14,45 @@ const Ludo = () => {
       <Row className="justify-content-center">
           <Col  xs={12} sm={6} md={3} className="mb-3">
             <div
-              className="player bg-light border rounded p-3"
+              className="player  border rounded p-3"
               style={{ width: '100%', height: '200px' }}
             >
-              Player 1
+              <img src={pieceRed} alt="" />
+              <h3>Username</h3>
+              <Button>Pronto!</Button>
             </div>
           </Col>
 
           <Col  xs={12} sm={6} md={3} className="mb-3">
             <div
-              className="player bg-light border rounded p-3"
+              className="player  border rounded p-3"
               style={{ width: '100%', height: '200px' }}
             >
-              Player 2
+              <img src={pieceBlue} alt="" />
+              <h3>PlayerBot1</h3>
+              <Button className='bg-danger'>Rimuovi!</Button>
             </div>
           </Col>
 
           <Col  xs={12} sm={6} md={3} className="mb-3">
             <div
-              className="player bg-light border rounded p-3"
+              className="player  border rounded p-3"
               style={{ width: '100%', height: '200px' }}
             >
-              Player 3
+              <img src={pieceYellow} alt="" />
+              <h3>PlayerBot2</h3>
+              <Button className='bg-danger'>Rimuovi!</Button>
             </div>
           </Col>
 
           <Col  xs={12} sm={6} md={3} className="mb-3">
             <div
-              className="player bg-light border rounded p-3"
+              className="player  border rounded p-3"
               style={{ width: '100%', height: '200px' }}
             >
-              Player 4
+              <img src={pieceGreen} alt="" />
+              <h3>PlayerBot3</h3>
+              <Button className='bg-danger'>Rimuovi!</Button>
             </div>
           </Col>
         

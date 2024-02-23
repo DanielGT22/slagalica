@@ -1,4 +1,10 @@
-
+body {
+  
+    background: url(../img/1000_F_577639532_5mYr70FESqQo7wrbTl6OjgqVgQsiPvuF.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+      
+}
 .navbar {
     position: absolute;
     top: 0;
@@ -11,14 +17,53 @@
 }
 
 .AudioController {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    position: absolute;
+    top: 0;
+  
+
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8); 
-    padding: 10px; 
+    align-items: center; 
+    padding: 2px; 
     z-index: 2;
+}
+#profile {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: white;
+    border: 2px solid black
+}
+#profileBanner{
+    padding: 5px;
+    background: url(../img/1000_F_577639532_5mYr70FESqQo7wrbTl6OjgqVgQsiPvuF.jpg);
+    border: 2px solid black
+}
+.cont  {
+    height: 90vh;
+    margin-left: 5%;
+    
+    
+}
+
+.btnPlayShop {
+    background: url(../img/gioca.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.circus  {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+}
+.animal1 {
+    height: 10%;
+}
+.logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
 }

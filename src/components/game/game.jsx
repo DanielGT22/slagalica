@@ -301,37 +301,6 @@ const Ludo = () => {
 
 
 
-  // let currentPawn;
-  // let currentFatherElement;
-  // const selectMovingPawn =  (event, pawnId) => {
-  //      currentPawn = document.getElementById(pawnId);
-  //      currentFatherElement = document.getElementById(pawnId).parentElement;
-  //     if (movingTiles.includes(currentFatherElement)) {
-  //       currentPawn.remove();
-  //     }
-  // }
-
-  // const selectedField = (cellId) => {
-  //   targetDiv = document.getElementById(cellId)
-  //   console.log(targetDiv);
-  //   if (!colors.red.includes(selectedPawn) ) {
-  //     console.log("yah");
-  //     if (movingTiles.includes(cellId)) {
-  //       targetDiv.appendChild(selectedPawn);
-  //       selectedPawn = undefined; 
-  //     if (selectedPawn === undefined) {
-  //       setTurnIndex((prevIndex) => (prevIndex + 1) % turn.length);
-  //       setDiceValue(0); // Reset the dice value
-  //     console.log(turn[turnIndex]);
-  //     }
-  //     console.log(selectedPawn);
-  //     }
-      
-  // } else {
-  //     console.error("No pawn selected or already moved."); // Handle error or log message accordingly
-  // }
-  // }
-
   const rollDice = () => {
     console.log(diceValue);
    if (diceValue !== 0) {
@@ -406,15 +375,6 @@ const Ludo = () => {
        
         <p>{`Dice Value: ${diceValue}`}</p>
         {renderGrid()}
-        <Row>
-          <Col>
-            <Link to="/game">
-              <Button className="btn btn-danger">
-                <span className="fs-1">Play!</span>
-              </Button>
-            </Link>
-          </Col>
-        </Row>
       </Container>
     </div>
   );
