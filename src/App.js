@@ -25,6 +25,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/asosijacije" element={<Asosijacije />} />
             <Route path="/impostazioni" element={<Impostazioni />} />
+            
         </Routes>
     </BrowserRouter>
 

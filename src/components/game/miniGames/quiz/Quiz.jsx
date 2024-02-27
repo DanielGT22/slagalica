@@ -16,10 +16,12 @@ function Quiz() {
       const response = await fetch('http://localhost:3001/quizzes', {
         headers: {
           Authorization: `Bearer ${token}`,
+      
         },
       });
       const data = await response.json();
-      console.log(data.content);
+      console.log(data);
+      console.log(token);
       setQuestions(data.content); // Set questions fetched from API
     } catch (error) {
       console.error('Error fetching questions: ', error);
@@ -50,7 +52,7 @@ function Quiz() {
 
   return (
     <div>
-      {questions.length > 0 && currentQuestion < questions.length ? (
+      {/* {questions.length > 0 && currentQuestion < questions.length ? (
         <div>
           <h3>{questions[currentQuestion].question}</h3>
           <ul>
@@ -71,7 +73,7 @@ function Quiz() {
         </div>
       ) : (
         <p>No more questions!</p>
-      )}
+      )} */}
     </div>
   );
 }

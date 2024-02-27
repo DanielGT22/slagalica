@@ -14,35 +14,70 @@ const Menu = () => {
 
   const [userName, setUserName] = useState("");
 
+  // useEffect(() => {
+  //   const token = localStorage.getItem("jwtToken");
+
+  //   const getUserInfo = async () => {
+      
+  //     try {
+  //       const userResponse = await fetch("http://localhost:3001/users/me", {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-type": "application/json",
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+
+  //       if (userResponse.ok) {
+  //         const userData = await userResponse.json();
+  //         setUserName(userData.username);
+  //       } else {
+  //         throw new Error("Errore nel recupero dei dati dell'utente");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   if (token) {
+  //     getUserInfo();
+  //   }else  {
+  //     window.location.href = "/"; 
+  //     return;
+  //   }
+  // }, []); // Dipendenza vuota, quindi la richiesta viene eseguita solo al caricamento del componente
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
-
+  
     const getUserInfo = async () => {
       try {
-        const userResponse = await fetch("http://localhost:3001/users/me", {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (userResponse.ok) {
-          const userData = await userResponse.json();
-          setUserName(userData.username);
+        if (token) {
+          const userResponse = await fetch("http://localhost:3001/users/me", {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
+  
+          if (userResponse.ok) {
+            const userData = await userResponse.json();
+            setUserName(userData.username);
+          } else {
+            throw new Error("Errore nel recupero dei dati dell'utente");
+          }
         } else {
-          throw new Error("Errore nel recupero dei dati dell'utente");
+          // Redirect if no token
+          window.location.href = "/"; // Redirect to the desired URL
         }
       } catch (error) {
         console.error(error);
-      }
+      } 
     };
-
-    if (token) {
-      getUserInfo();
-    }
-  }, []); // Dipendenza vuota, quindi la richiesta viene eseguita solo al caricamento del componente
-
+  
+    getUserInfo();
+  }, []);
+  
 
 
     return (<div>
