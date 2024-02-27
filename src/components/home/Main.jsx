@@ -81,7 +81,7 @@ const Menu = () => {
 
 
     return (<div>
-      <img src={Logo} alt="" width="200px" className='logo' />
+      {/* <img src={Logo} alt="" width="200px" className='logo' /> */}
       <div className=' p-1' id='profile'>
       <div className=' w-100' id='profileBanner'> 
       <Container className='' >
@@ -93,7 +93,7 @@ const Menu = () => {
       <div className='d-flex m-auto '>
 
       <div   className="text-center rounded p-1 bg-light mx-1">
-          <Link to="/shop" >
+          <Link to="/profile" >
             <Button className="btn btn3 btn-danger">
               <span className=' '><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-person" viewBox="0 0 16 16">
   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
@@ -103,7 +103,7 @@ const Menu = () => {
         </div>
 
         <div   className="text-center rounded p-1 bg-light mx-1">
-          <Link to="/shop">
+          <Link to="/inventory">
             <Button className="btn btn3 btn-warning">
               <span className=' '><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-box2-heart" viewBox="0 0 16 16">
   <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
@@ -113,7 +113,7 @@ const Menu = () => {
           </Link>
         </div>
       <div   className="text-center rounded p-1 bg-light mx-1">
-          <Link to="/shop">
+          <Link to="/friends">
             <Button className="btn btn3 btn-primary">
               <span className=' '><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-people" viewBox="0 0 16 16">
   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
@@ -137,12 +137,7 @@ const Menu = () => {
       </div>
       </div>
 
-        <div className='circus d-flex  justify-content-start align-items-center px-5'>
-        <div className=' animal1 w-25 h-25 m-3'>
-         <a href="/game-setup">
-       <img src={cannon} alt="Game Setup" width="100px" onClick={() => window.location.href = "/game-setup"} />
-       </a>
-        </div>
+       
       {/* <div className='w-25 h-25 m-3'>
       <Link to="/game-setup">
             <Button className="btnPlayShop ">
@@ -157,6 +152,15 @@ const Menu = () => {
             </Button>
           </Link>
       </div> */}
+
+
+        {/* CAMBIA QUA IL LAYOUT  */}
+<div className='circus d-flex  justify-content-start align-items-center px-5'>
+        <div className=' animal1 w-25 h-25 m-3'>
+         <a href="/game-setup">
+       <img src={cannon} alt="Game Setup" width="100px" onClick={() => window.location.href = "/game-setup"} />
+       </a>
+        </div>
       <div className=' animal2 w-25 h-25 m-3'>
   <a href="/shop">
     <img src={shop} alt="Shop" width="100px" onClick={() => window.location.href = "/shop"} />

@@ -21,7 +21,8 @@ const AudioController = () => {
         setVolume(newVolume);
         audio.volume = newVolume;
     };
-
+// MIGLIORA IL AUDIO CONTROLLER 
+// molto brutto 
     return (
         <div className="AudioController">
             <button className='btn btn-danger border border-dark ms-3 px-2 py-1' onClick={handlePlayButtonClick}>Play</button>

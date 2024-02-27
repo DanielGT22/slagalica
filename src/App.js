@@ -11,6 +11,7 @@ import Quiz from './components/game/miniGames/quiz/Quiz';
 import Register from './components/login/register';
 import Asosijacije from './components/game/asosijacije';
 import Impostazioni from './components/impostazioni/Impostazioni';
+import Friends from './components/home/Friends';
 const App = () => {
 
     return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/asosijacije" element={<Asosijacije />} />
             <Route path="/impostazioni" element={<Impostazioni />} />
+            <Route path="/friends" element={<Friends />} />
             
         </Routes>
     </BrowserRouter>
