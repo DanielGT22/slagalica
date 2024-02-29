@@ -1,9 +1,4 @@
-body{
-    background: url(../../assets/img/_c92edb1b-9529-4780-9d18-79baed52bf44.jfif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .box{
     background: transparent;
     backdrop-filter: blur(3px);

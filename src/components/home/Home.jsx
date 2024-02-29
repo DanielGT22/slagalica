@@ -16,7 +16,7 @@ const Home = () => {
     }, []);
   
     return (
-      <div className="h-100">
+      <div className="">
         <CurtainContainer curtainsOpened={curtainsOpened} />
         <Main />
         <AudioController />

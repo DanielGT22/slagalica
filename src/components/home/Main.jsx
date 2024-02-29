@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Row, Button,Col } from 'react-bootstrap';
 import "../../assets/css/Main.css"
 import { Link } from 'react-router-dom';
-import animal from "../../assets/img/gioca.png"
-import cannon from "../../assets/img/cannon.png"
-import shop from "../../assets/img/hot-dog.png"
-import stage from "../../assets/img/platform.png"
-import asosijacije from "../../assets/img/ring-of-fire.png"
+import quiz from "../../assets/img/quiz.png"
+import conect4 from "../../assets/img/connect 4.png"
+import ludo from "../../assets/img/Ludo1.png"
+import friends from "../../assets/img/friends.png"
+import inventory from "../../assets/img/inventory.png"
+import settings from "../../assets/img/setting.png"
+import shop from "../../assets/img/shop.png"
+import Spojnice from "../../assets/img/Spojnice.png"
 
-import Logo from "../../assets/img/Logo.png"
+
 const Menu = () => {
 
   const [userName, setUserName] = useState("");
@@ -80,13 +83,15 @@ const Menu = () => {
   
 
 
-    return (<div>
+    return (
+    <div className='d-flex flex-column justify-content-center align-items-center' style={{height:"100vh"}}>
       {/* <img src={Logo} alt="" width="200px" className='logo' /> */}
-      <div className=' p-1' id='profile'>
+      {/* <div className=' p-1' id='profile'>
       <div className=' w-100' id='profileBanner'> 
       <Container className='' >
        <div className=' p-2 d-flex ' >
-       <div><img className='rounded rounded-circle' src="http://placekitten.com/g/50" alt="" /></div>
+       <div>
+        <img className='rounded rounded-circle' src="http://placekitten.com/g/50" alt="" /></div>
        <h2 className='pt-1 mx-2 text-white '>{userName}</h2>
       
       </div>
@@ -135,80 +140,62 @@ const Menu = () => {
       </div>
       </Container>
       </div>
-      </div>
-
-       
-      {/* <div className='w-25 h-25 m-3'>
-      <Link to="/game-setup">
-            <Button className="btnPlayShop ">
-              <span className='fs-1'>Gioca!</span>
-            </Button>
-          </Link>
-      </div> */}
-      {/* <div className='w-25 h-25 m-3'>
-      <Link to="/shop">
-            <Button className="btnPlayShop ">
-              <span className='fs-1'>Shop!</span>
-            </Button>
-          </Link>
       </div> */}
 
-
-        {/* CAMBIA QUA IL LAYOUT  */}
-<div className='circus d-flex  justify-content-start align-items-center px-5'>
-        <div className=' animal1 w-25 h-25 m-3'>
-         <a href="/game-setup">
-       <img src={cannon} alt="Game Setup" width="100px" onClick={() => window.location.href = "/game-setup"} />
-       </a>
+<div className='  mb-5 ' style={{width:"60%"}}>
+    <Row>
+      <Col xs={2} className='pb-5'>
+        <div className='d-flex align-items-center'>
+        <img className='rounded rounded-circle' src="http://placekitten.com/g/50" alt="" width={50} height={50}/>
+        <h2 className=' ms-3 text-white ' style={{fontSize:"45px", fontWeight:"600"}}>{userName}</h2>
         </div>
-      <div className=' animal2 w-25 h-25 m-3'>
-  <a href="/shop">
-    <img src={shop} alt="Shop" width="100px" onClick={() => window.location.href = "/shop"} />
-  </a>
-</div>
-
-<div className=' animal2 w-25 h-25 m-3'>
-  <a href="/quiz">
-    <img src={stage} alt="Quiz" width="100px" onClick={() => window.location.href = "/quiz"} />
-  </a>
-</div>
-
-<div className=' animal2 w-25 h-25 m-3'>
-  <a href="/asosijacije">
-    <img src={asosijacije} alt="asosijacije" width="100px" onClick={() => window.location.href = "/asosijacije"} />
-  </a>
-</div>
-      </div>
-     
-      { /* <Container className=" cont p-5  d-flex flex-column justify-content-center align-items-start">
-           
-        <Row className='w-50 m-2 '>
-          <Col  xs={4} md={4} className="text-center ">
-          <Link to="/game-setup">
-            <Button className="btn btn1 btn-danger">
-              <span className='fs-1'>Gioca!</span>
-            </Button>
-          </Link>
+      </Col>
+    
+    </Row>
+      <Row>
+          <Col xs={3} className=' d-flex justify-content-center  rounded overflow-hidden '>
+           <Button className=' w-100  border border-black border-1 p-0'> 
+           <img src={ludo} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/game-setup"}/>
+         </Button>
           </Col>
-          <Col xs={4} md={4}></Col>
-          <Col xs={4} md={4}></Col>
-        </Row>
+        <Col  xs={3} className=' d-flex justify-content-center  rounded overflow-hidden'>
+          
+        <Button className=' btn-light w-100 border border-black border-1 p-0'> 
+              <img src={conect4} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/shop"}/>
+                </Button>
+               </Col>
+  
+               <Col   xs={3} className=' d-flex justify-content-center  rounded overflow-hidden '>
+               <Button className=' w-100 border border-black border-1 p-0'> 
+               <img src={quiz} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/quiz"}/>
+               </Button>
+               </Col>
 
-        
-        <Row className='w-50 m-2'>
-        <Col xs={3} md={3}></Col>
-          <Col   xs={4} md={4}  className="text-center">
-          <Link to="/shop">
-            <button className="btn btnPlayShop  btn-danger">
-              <span className='fs-1 '>Shop!</span>
-            </button>
-          </Link>
-          </Col>
-        
-          <Col xs={5} md={5}></Col>
-        </Row>
-      </Container> */}
-      
+               <Col  xs={3} className=' d-flex justify-content-center  rounded overflow-hidden '>
+               <Button className=' w-100 border border-black border-1 p-0'> 
+               <img src={Spojnice} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/asosijacije"}/>
+              </Button>
+               </Col>
+  </Row> 
+  
+    </div>
+    <div className=''  style={{width:"30%"}}>
+    <Row className='p-5'>
+    <Col xs={3} className='d-flex justify-content-center  overflow-hidden  rounded-circle ' >
+        <img src={friends} alt="" style={{width:"100%",height:"100%",}} className='rounded-circle p-0 ' onClick={() => window.location.href = "/friends"} />
+    </Col>
+    <Col xs={3} className='d-flex justify-content-center  overflow-hidden  rounded-circle '>
+        <img src={inventory} alt="" style={{width:"100%",height:"100%"}} className='rounded-circle p-0 ' onClick={() => window.location.href = "/inventory"} />
+    </Col>
+    <Col xs={3} className='d-flex justify-content-center  overflow-hidden  rounded-circle '>
+        <img src={shop} alt="" style={{width:"100%",height:"100%"}} className='rounded-circle p-0 ' onClick={() => window.location.href = "/shop"} />
+    </Col>
+    <Col xs={3} className='d-flex justify-content-center   overflow-hidden  rounded-circle '>
+        <img src={settings} alt="" style={{width:"100%",height:"100%"}} className='rounded-circle p-0 ' onClick={() => window.location.href = "/impostazioni"} />
+    </Col>
+</Row>
+
+    </div>   
 
       </div>
     );
