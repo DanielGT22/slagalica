@@ -17,7 +17,7 @@ const Home = () => {
   
     return (
       <div className="">
-        <CurtainContainer curtainsOpened={curtainsOpened} />
+        {/* <CurtainContainer curtainsOpened={curtainsOpened} /> */}
         <Main />
         <AudioController />
       </div>

@@ -1,8 +1,16 @@
 import { Button, Col, Row } from "react-bootstrap";
 import "../impostazioni/impostazioni.css"
-import { Form, Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 const Impostazioni = () => {
+	const token = localStorage.getItem("jwtToken");
 
+	if (!token) {
+		// If token doesn't exist, redirect to "/"
+		window.location.href = "/"; 
+	  }
+	function removeToken() {
+		localStorage.removeItem("jwtToken");
+	  }
     return (
     
          <div class="container">
@@ -59,7 +67,7 @@ const Impostazioni = () => {
 			</Row>
 			<Row>
 			<Col className="pb-4 px-4">
-			<button type="submit" class="btn btn-light  w-100 rounded rounded-pill ">LogOut</button>
+			<button type="submit" class="btn btn-light  w-100 rounded rounded-pill" onClick={removeToken}>LogOut</button>
 			</Col>
 			</Row>
 			<Row>
@@ -76,66 +84,9 @@ const Impostazioni = () => {
 		</Row>
 		
 		
-			
-
-{/* 			
-<div class="row gutters">
-	<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-		<div class="card h-100">
-			<div class="card-body">
-				<div class="account-settings">
-					<div class="user-profile">
-						<div class="user-avatar">
-							<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin"/>
-						</div>
-						<h5 class="user-name">Yuki Hayashi</h5>
-						<h6 class="user-email">yuki@Maxwell.com</h6>
-					</div>
-					<div class="about">
-						<h5 class="mb-2 text-primary">About</h5>
-						<p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-		<div class="card h-100">
-			<div class="card-body">
-				<div class="row gutters">
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-						<h6 class="mb-3 text-primary">Personal Details</h6>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-						<div class="form-group">
-							<label for="fullName">Full Name</label>
-							<input type="text" class="form-control" id="fullName" placeholder="Enter full name"/>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-						<div class="form-group">
-							<label for="eMail">Email</label>
-							<input type="email" class="form-control" id="eMail" placeholder="Enter email ID"/>
-						</div>
-					</div>
-					
-				</div>
-				
-				<div class="row gutters">
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-						<div class="text-right">
-							<button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-							<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> */}
 </div>
    
-
+   
 
     );
   };

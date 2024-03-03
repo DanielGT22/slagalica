@@ -358,7 +358,7 @@ const Ludo = () => {
     };
 
     return (
-      <div className='bg-light boxBig'>
+      <div className=' boxBig'>
         <div className="chessboard">
           {renderChessboard()}
         </div>
@@ -368,7 +368,7 @@ const Ludo = () => {
 
   return (
     <div>
-      <Container className="text-center mt-2 container-custom-width"  >
+      <Container className="text-center mt-2 container-custom-width "  >
         <h1 className="m-2">Players</h1>
         <h2>{`Turn: ${turn[turnIndex]}`}</h2>
         <button onClick= {rollDice}>   Roll Dice </button>

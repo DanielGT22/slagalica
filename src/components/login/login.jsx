@@ -2,8 +2,31 @@ import { useState } from "react";
 import { Button, Col, Row, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-
+import "../../assets/css/Main.css"
 const Login = () => {
+  const token = localStorage.getItem("jwtToken");
+
+	if (token) {
+		window.location.href = "/home"; 
+	  }
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  const [isHovered2, setIsHovered2] = useState(false);
+
+  const handleMouseEnter2 = () => {
+    setIsHovered2(true);
+  };
+
+  const handleMouseLeave2 = () => {
+    setIsHovered2(false);
+  };
 
     const [loginPayload, setLoginPayload] = useState({
         email: "",
@@ -57,9 +80,10 @@ const Login = () => {
             <div >
               <Form>
                 <Form.Group className="mb-5" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="text-center bg-danger rounded  w-100 text-white">Email address</Form.Label>
+                  <Form.Label className="text-start w-100 text-white">Email address</Form.Label>
                   <Form.Control
                     type="email"
+                    className=""
                     placeholder="name@example.com"
                     value={loginPayload.email}
                     onChange={(e) => {
@@ -70,7 +94,7 @@ const Login = () => {
                     }}
                   />
                 </Form.Group>
-                <Form.Label htmlFor="inputPassword5"  className="text-center bg-danger rounded  w-100 text-white">Password</Form.Label>
+                <Form.Label htmlFor="inputPassword5"  className="text-start w-100 text-white">Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="*******"
@@ -84,10 +108,17 @@ const Login = () => {
                     });
                   }}
                 /> <div className="d-flex m-2 justify-content-around">
-                <Button onClick={handleLogin}>Entra!</Button>
+                <Button  className={`text-white border border-2 border-white bg-dark ${isHovered ? 'shadow-blue' : ''}`}
+                 onClick={handleLogin} 
+                 onMouseEnter={handleMouseEnter}
+                 onMouseLeave={handleMouseLeave}
+                >Entra!</Button>
                  
-                <Link to={"/register"}>
-                <Button className="bg-danger">Registrati!</Button>
+                <Link to={"/register"}  >
+                <Button className={`text-white border border-2 border-white bg-dark ${isHovered2 ? 'shadow-red' : ''}`}
+                 onMouseEnter={handleMouseEnter2}
+                 onMouseLeave={handleMouseLeave2}
+                >Registrati!</Button>
                 </Link>
       
                 </div>

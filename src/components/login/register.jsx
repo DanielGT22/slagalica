@@ -24,7 +24,7 @@ const Register = () => {
           if (response.ok) {
             setRegistrationSuccess(true);
             setTimeout(() => {
-              navigate("/login"); 
+              navigate("/"); 
             }, 2000);
           } else {
             console.error("Registration failed:", response.statusText);
@@ -67,7 +67,7 @@ const Register = () => {
             )}
               <Form>
               <Form.Group className="mb-5" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="text-center bg-danger rounded  w-100 text-white">Username</Form.Label>
+                  <Form.Label className="text-center bg-dark border border-white border-2 rounded  w-100 text-white">Username</Form.Label>
                   <Form.Control
                     type="username"
                     placeholder="Username"
@@ -81,7 +81,7 @@ const Register = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-5" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="text-center bg-danger rounded  w-100 text-white">Email address</Form.Label>
+                  <Form.Label className="text-center bg-dark border border-2 border-white rounded  w-100 text-white">Email address</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="name@example.com"
@@ -94,7 +94,7 @@ const Register = () => {
                     }}
                   />
                 </Form.Group>
-                <Form.Label htmlFor="inputPassword5"  className="text-center bg-danger rounded  w-100 text-white">Password</Form.Label>
+                <Form.Label htmlFor="inputPassword5"  className="text-center bg-dark border border-white  rounded  w-100 text-white">Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="*******"
@@ -109,18 +109,18 @@ const Register = () => {
                   }}
                 /> <div className="d-flex m-2 justify-content-around">
               
-                <Button onClick={handleRegister} className="bg-danger">Registrati!</Button>
+                <Button onClick={handleRegister} className="bg-dark border border-white ">Registrati!</Button>
 
       
                 </div>
                
               </Form>
               
-              <div className="m-2 d-flex flex-column">
-                  <div  className="text-center bg-danger rounded border border-primary border-2  w-100 text-white " style={{fontSize: "1em"}}>Sei già registrato? <br />
+              <div className="mt-4 d-flex flex-column justify-content-center align-items-center">
+                  <div  className="text-center bg-dark rounded border border-white border-2 p-1 w-100 text-white " style={{fontSize: "1em"}}>Sei già registrato?
                   Accedi!</div> 
-                  <Link to={"/login"}>
-                <Button className="bg-danger m-1 mx-5">Login!</Button>
+                  <Link className="mt-3 " to={"/"}>
+                <Button className="bg-dark border-2 border-white m-1 mx-5">Login!</Button>
                 </Link>
                 </div>
             </div>
