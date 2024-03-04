@@ -1,5 +1,6 @@
 // Question.js
 import React, { useState } from 'react';
+import { Button, Col, Row } from 'react-bootstrap';
 
 function Question({ questionData, onNext }) {
   const [selectedOption, setSelectedOption] = useState('');
@@ -11,31 +12,40 @@ function Question({ questionData, onNext }) {
   const handleSubmit = () => {
     // Check if selected option is correct
     if (selectedOption === questionData.answer) {
-      alert('Correct!');
+    
+      onNext(true); // Move to the next question with correct flag
     } else {
-      alert('Incorrect!');
+     
+      onNext(false); // Move to the next question with incorrect flag
     }
-    onNext(); // Move to the next question
+    setSelectedOption('');
   };
 
   return (
-    <div>
+    <div className='text-white text-center d-flex justify-content-center '>
+      <div className='w-75'>
+      <Row className='mb-4'>
       <h3>{questionData.question}</h3>
-      <ul>
-        <li onClick={() => handleOptionSelect(questionData.answer)}>
-          {questionData.answer}
-        </li>
-        <li onClick={() => handleOptionSelect(questionData.decoy1)}>
-          {questionData.decoy1}
-        </li>
-        <li onClick={() => handleOptionSelect(questionData.decoy2)}>
-          {questionData.decoy2}
-        </li>
-        <li onClick={() => handleOptionSelect(questionData.decoy3)}>
-          {questionData.decoy3}
-        </li>
-      </ul>
-      <button onClick={handleSubmit}>Submit</button>
+      </Row>
+      <Row className='mb-4'>
+     
+        <Col xs={12} md={6}>
+          <Button className='btn-dark border border-2 border-white w-50' onClick={() => handleOptionSelect(questionData.answer)}>  {questionData.answer}</Button>
+        </Col>
+        <Col xs={12} md={6} >
+        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy1)}>  {questionData.decoy1}</Button>
+          </Col>
+        </Row>
+        <Row className='mb-4'>
+        <Col xs={12} md={6} >
+        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy2)}>   {questionData.decoy2}</Button>
+          </Col>
+        <Col xs={12} md={6} >
+        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy3)}>   {questionData.decoy3}</Button>
+          </Col>
+        </Row>
+      <Button className='btn-dark border-white ' onClick={handleSubmit}>Submit</Button>
+      </div>
     </div>
   );
 }

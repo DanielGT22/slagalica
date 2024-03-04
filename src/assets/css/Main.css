@@ -73,3 +73,17 @@
    border: 4px solid white;
     box-shadow: 0 0px 15px 2px rgb(2, 194, 228);
   }
+
+ .hover-effect-r0:hover, .hover-effect-r1:hover, .hover-effect-r2:hover,
+ .hover-effect-r3:hover, .hover-effect-r4:hover, .hover-effect-r5:hover, .hover-effect-r6:hover
+ , .hover-effect-r7:hover, .hover-effect-r8:hover, .hover-effect-r9:hover {
+    box-shadow: 0 0 10px 1px rgb(2, 194, 228);
+    cursor: pointer;
+    
+ }
+ .hover-effect-l0:hover, .hover-effect-l1:hover, .hover-effect-l2:hover,
+ .hover-effect-l3:hover, .hover-effect-l4:hover, .hover-effect-l5:hover, .hover-effect-l6:hover
+ , .hover-effect-l7:hover, .hover-effect-l8:hover, .hover-effect-l9:hover {
+    box-shadow: 0 0 10px 1px rgb(228, 66, 2);
+    cursor: pointer;
+ }
