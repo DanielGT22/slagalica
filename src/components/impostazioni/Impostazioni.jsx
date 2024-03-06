@@ -5,7 +5,38 @@ import { useEffect, useState } from "react";
 const Impostazioni = () => {
 	const token = localStorage.getItem("jwtToken");
 	const [loading, setLoading] = useState(true);
-   
+	const [userName, setUserName] = useState("");
+	useEffect(() => {
+	  const token = localStorage.getItem("jwtToken");
+	
+	  const getUserInfo = async () => {
+		try {
+		  if (token) {
+			const userResponse = await fetch("http://localhost:3001/users/me", {
+			  method: "GET",
+			  headers: {
+				"Content-type": "application/json",
+				Authorization: `Bearer ${token}`,
+			  },
+			});
+	
+			if (userResponse.ok) {
+			  const userData = await userResponse.json();
+			  setUserName(userData.username);
+			} else {
+			  throw new Error("Errore nel recupero dei dati dell'utente");
+			}
+		  } else {
+			window.location.href = "/"; 
+		  }
+		} catch (error) {
+		  console.error(error);
+		} 
+	  };
+	
+	  getUserInfo();
+	}, []);
+
 	const index = 0;
 	useEffect(() => {
 	  document.querySelectorAll('.ball4, .ball5, .ball6').forEach((ball, index) => {
@@ -53,7 +84,7 @@ const Impostazioni = () => {
 					<Col xs={5}></Col>
 					</Row>
 					<Row className="text-center">
-					<h2 className="my-4 text-white">Username</h2>
+					<h2 className="my-4 text-white">{userName}</h2>
 					</Row>
 				<Row className="m-3 mb-4">
 				<Col >

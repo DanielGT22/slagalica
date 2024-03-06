@@ -107,15 +107,15 @@ const Login = () => {
                       password: e.target.value,
                     });
                   }}
-                /> <div className="d-flex m-2 justify-content-around">
-                <Button  className={`text-white border border-2 border-white bg-dark ${isHovered ? 'shadow-blue' : ''}`}
+                /> <div className="d-flex m-4 justify-content-around">
+                <Button  className={`text-white border  mx-2 border-2 border-white bg-dark ${isHovered ? 'shadow-blue' : ''}`}
                  onClick={handleLogin} 
                  onMouseEnter={handleMouseEnter}
                  onMouseLeave={handleMouseLeave}
                 >Entra!</Button>
                  
                 <Link to={"/register"}  >
-                <Button className={`text-white border border-2 border-white bg-dark ${isHovered2 ? 'shadow-red' : ''}`}
+                <Button className={`text-white border mx-2 border-2 border-white bg-dark ${isHovered2 ? 'shadow-red' : ''}`}
                  onMouseEnter={handleMouseEnter2}
                  onMouseLeave={handleMouseLeave2}
                 >Registrati!</Button>

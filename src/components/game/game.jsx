@@ -345,8 +345,8 @@ const Ludo = () => {
             // onClick={() =>selectedField(cellId) }
              className={`chess-cell rounded rounded-circle ${isStartingPiece ? 'has-piece' : ''}`} >
                 
-              {isStartingPiece && x++ && (<div onClick={(event) =>  { selectPawn(event, pawnId);}} id={pawnId}>
-           
+              {isStartingPiece && x++ && (<div className='' onClick={(event) =>  { selectPawn(event, pawnId);}} id={pawnId}>
+            
               </div>)   }
               
             </div>
@@ -370,9 +370,8 @@ const Ludo = () => {
     <div>
       <Container className="text-center mt-2 container-custom-width "  >
         <h2 className='text-white'>{`Turn: ${turn[turnIndex]}`}</h2>
-        <button onClick= {rollDice}>   Roll Dice </button>
-       
-        <p className='text-white'>{`Dice Value: ${diceValue}`}</p>
+        <Button className='btn-success' onClick= {rollDice}>   Roll Dice </Button>
+        <h3 className='text-white p-2  '>{`${diceValue}`}</h3>
         {renderGrid()}
       </Container>
     </div>
