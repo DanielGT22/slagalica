@@ -1,0 +1,160 @@
+.animate-bounce1  {
+    animation: bounce1 2s infinite linear;
+}
+@keyframes bounce1 {
+    0% {
+    
+              transform: translateY(-500px);
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+    
+              transform: translateY(-65px);
+              animation-timing-function: ease-in;
+    }
+    72% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    81% {
+
+              transform: translateY(-28px);
+              animation-timing-function: ease-in;
+    }
+    90% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    95% {
+   
+              transform: translateY(-8px);
+              animation-timing-function: ease-in;
+    }
+    100% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+  }
+
+
+.animate-bounce2  {
+    animation: bounce2 2s infinite linear;
+}
+
+@keyframes bounce2 {
+    10% {
+    
+              transform: translateY(-500px);
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    48% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    65% {
+    
+              transform: translateY(-65px);
+              animation-timing-function: ease-in;
+    }
+    82% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    91% {
+
+              transform: translateY(-8px);
+              animation-timing-function: ease-in;
+    }
+    95% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    
+    100% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+  }
+.animate-bounce3  {
+    animation: bounce3 2s infinite linear;
+}
+
+@keyframes bounce3 {
+    20% {
+    
+              transform: translateY(-500px);
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+58% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    75% {
+    
+              transform: translateY(-30px);
+              animation-timing-function: ease-in;
+    }
+    87% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+  
+    
+    100% {
+              transform: translateY(-100);
+              animation-timing-function: ease-out;
+    }
+  }
+
+  .animate-roll1  {
+    animation: roll1 1s  infinite both;
+}
+
+@keyframes roll1 {
+  0% {
+    transform: translateX(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  }
+  .animate-roll2  {
+    animation: roll2 1s  infinite both;
+}
+
+@keyframes roll2 {
+  0% {
+    transform: translateY(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  }
+  .animate-roll3  {
+    animation: roll3 1s  infinite both;
+}
+
+@keyframes roll3 {
+  0% {
+    transform: translateX(800px) rotate(540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  }

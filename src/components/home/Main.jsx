@@ -131,7 +131,7 @@ const Menu = () => {
       <Col xs={2} className='pb-5'>
         <Link className='text-decoration-none'>
         <div className='d-flex align-items-center'>
-        <img className='rounded rounded-circle' src="http://placekitten.com/g/50" alt="" width={50} height={50}/>
+        <img className='rounded rounded-circle' src="https://picsum.photos/id/237/50" alt="" width={50} height={50}/>
         <h2 className=' ms-3 text-white ' style={{fontSize:"45px", fontWeight:"600"}}>{userName}</h2>
         </div>
         </Link>
@@ -139,35 +139,48 @@ const Menu = () => {
     
     </Row>
       <Row>
-          <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} 
-           onMouseEnter={handleMouseEnter}
-           onMouseLeave={handleMouseLeave}>
-           <Button className={` w-100  border border-black border-1 p-0 ${isHovered ? 'shadow-game' : ''}`}> 
+          <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `}  >
+            <div className='d-flex flex-column'>
+           <Button
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave} 
+           className={` w-100  border border-black border-1 p-0 ${isHovered ? 'shadow-game' : ''}`}> 
            <img src={ludo} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/game-setup"}/>
          </Button>
+         <h3 className='text-white text-center mt-3'>Ludo</h3>
+         </div>
           </Col>
-          <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} 
+          <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} >
+           <div className='d-flex flex-column'>
+           <Button 
            onMouseEnter={handleMouseEnter2}
-           onMouseLeave={handleMouseLeave2}>
-           <Button className={` w-100  border border-black border-1 p-0 ${isHovered2 ? 'shadow-game' : ''}`}> 
+           onMouseLeave={handleMouseLeave2} className={` w-100  border border-black border-1 p-0 ${isHovered2 ? 'shadow-game' : ''}`}> 
               <img src={conect4} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/shop"}/>
                 </Button>
+                <h3 className='text-white  mt-3 text-center'>Connect4</h3>
+         </div>
                </Col>
   
-               <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} 
+               <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} >
+            <div className='d-flex flex-column'>
+           <Button 
            onMouseEnter={handleMouseEnter3}
-           onMouseLeave={handleMouseLeave3}>
-           <Button className={` w-100  border border-black border-1 p-0 ${isHovered3 ? 'shadow-game' : ''}`}> 
+           onMouseLeave={handleMouseLeave3} className={` w-100  border border-black border-1 p-0 ${isHovered3 ? 'shadow-game' : ''}`}> 
                <img src={quiz} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/quiz"}/>
                </Button>
+               <h3 className='text-white  mt-3 text-center'>Quizzz</h3>
+         </div>
                </Col>
 
-               <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} 
+               <Col xs={3} className={` d-flex justify-content-center  rounded overflow-hidden p-2 `} >
+            <div className='d-flex flex-column'>
+           <Button 
            onMouseEnter={handleMouseEnter4}
-           onMouseLeave={handleMouseLeave4}>
-           <Button className={` w-100  border border-black border-1 p-0 ${isHovered4 ? 'shadow-game' : ''}`}> 
+           onMouseLeave={handleMouseLeave4} className={` w-100  border border-black border-1 p-0 ${isHovered4 ? 'shadow-game' : ''}`}> 
                <img src={Spojnice} alt=""  style={{width:"100%",height:"100%"}}   onClick={() => window.location.href = "/asosijacije"}/>
               </Button>
+              <h3 className='text-white  mt-3 text-center'>Leads</h3>
+         </div>
                </Col>
   </Row> 
   

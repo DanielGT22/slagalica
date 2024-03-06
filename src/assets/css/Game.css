@@ -6,8 +6,6 @@
   
   
   
-  
-
   .boxTop {
     max-width: 250px; 
     width: 120px;
@@ -30,14 +28,14 @@
   .boxBig {
     width: 100%;
     height: 500px;
-    margin: auto;
+    
     
   }
   .chessboard {
     display: flex;
     flex-wrap: wrap;
-    width: 100%; /* Adjust according to the number of cells */
-    height: 100%; /* Adjust according to the number of cells */
+    width: 100%; 
+    height: 100%; 
   }
   @media (min-width: 576px) {
     .boxBig {
@@ -81,16 +79,7 @@
       }
   }
   
-  @media (min-width: 1200px) {
-    .boxBig {
-      max-width: 60%; /* Adjust as needed */
-      width: 40%; /* Adjust as needed */
-    }
-    
-    .chessboard {
-      width: 60%; /* Adjust as needed */
-    }
-  }
+ 
 
   .chess-cell {
     width: calc(100% / 11 - 2px); /* Divide the width equally among cells and subtract margin */

@@ -369,11 +369,10 @@ const Ludo = () => {
   return (
     <div>
       <Container className="text-center mt-2 container-custom-width "  >
-        <h1 className="m-2">Players</h1>
-        <h2>{`Turn: ${turn[turnIndex]}`}</h2>
+        <h2 className='text-white'>{`Turn: ${turn[turnIndex]}`}</h2>
         <button onClick= {rollDice}>   Roll Dice </button>
        
-        <p>{`Dice Value: ${diceValue}`}</p>
+        <p className='text-white'>{`Dice Value: ${diceValue}`}</p>
         {renderGrid()}
       </Container>
     </div>

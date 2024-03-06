@@ -12,6 +12,8 @@ import Register from './components/login/register';
 import Asosijacije from './components/game/asosijacije';
 import Impostazioni from './components/impostazioni/Impostazioni';
 import Friends from './components/home/Friends';
+import Connect from './components/game/connect4';
+import Shop from './components/shop/shop';
 const App = () => {
 
     return (
@@ -27,7 +29,8 @@ const App = () => {
             <Route path="/asosijacije" element={<Asosijacije />} />
             <Route path="/impostazioni" element={<Impostazioni />} />
             <Route path="/friends" element={<Friends />} />
-            
+            <Route path="/connect4" element={<Connect />} />
+            <Route path="/shop" element={<Shop />} />
         </Routes>
     </BrowserRouter>
 
