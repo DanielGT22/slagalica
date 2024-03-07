@@ -53,7 +53,7 @@ function Quiz() {
   };
 
   return (
-    <div>
+    <div className='d-flex justify-content-center align-items-center' style={{minHeight: "100vh"}}>
       {/* {questions.length > 0 && currentQuestion < questions.length ? (
         <div className='pt-5'>
           <div className="Container d-flex justify-content-center  align-content-center">
@@ -98,7 +98,7 @@ function Quiz() {
         <p>No more questions!</p>
       )} */}
        {questions.length > 0 && currentQuestion < questions.length ? (
-        <div className='pt-5'>
+        <div className='pt-5 w-50 '>
           <Question 
             questionData={questions[currentQuestion]} 
             onNext={moveToNextQuestion} 

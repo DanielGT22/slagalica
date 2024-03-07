@@ -87,6 +87,43 @@ const Friends = () => {
   },  [token, myUserId, friends]); 
   
 
+
+  const handleAddFriend = async (friendUuid) => {
+    try {
+      const response = await fetch(`http://localhost:3001/users/me/add-friend/${friendUuid}`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        // Friend added successfully, fetch updated friend list
+        const userResponse = await fetch("http://localhost:3001/users/me", {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (userResponse.ok) {
+          const userData = await userResponse.json();
+          setFriends(userData.friendsList.map(friend => friend));
+        } else {
+          throw new Error("Errore nel recupero dei dati dell'utente");
+        }
+      } else {
+        throw new Error("Error adding friend");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
   return (
    
        <div class="container">
@@ -110,11 +147,10 @@ const Friends = () => {
     <Col xs={6} md={4} xl={3} key={friends.uuid} className="text-center">
       <Row className="">
       <Col xs={12} sm={12} md={5}>
-      <img src={`https://picsum.photos/id/${picId++}/50` } alt=""  onLoad={handleImageLoad}/>
+      <img src={`https://picsum.photos/id/${picId++}/100` } alt=""  onLoad={handleImageLoad}/>
       </Col>
       <Col xs={12} sm={12} md={7}>
       {friends.username && <p>{friends.username}</p>}
-      {friends.email && <p>{friends.email}</p>}
       <Button className="bg-danger border border-white border-2 text-white">Remove Friend &#128577;</Button>
       </Col>
       </Row>
@@ -134,7 +170,7 @@ const Friends = () => {
         </Col>
         <Col xs={12} sm={12} md={7}>
       {user.username && <h3 className="mb-3 mt-2">{user.username}</h3>}
-      <Button className="bg-dark border border-white border-2">Add Friend  </Button>
+      <Button className="bg-dark border border-white border-2"  onClick={() => handleAddFriend(user.uuid)}>Add Friend  </Button>
       </Col>
       </Row>
     </Col>

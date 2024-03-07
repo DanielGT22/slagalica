@@ -117,7 +117,7 @@ const Register = () => {
               </Form>
               
               <div className="mt-4 d-flex flex-column justify-content-center align-items-center">
-                  <div  className="text-center bg-dark rounded border border-white border-2 p-1 w-100 text-white " style={{fontSize: "1em"}}>Sei già registrato?
+                  <div  className="text-center bg-dark rounded  p-1 w-100 text-white " style={{fontSize: "1em"}}>Sei già registrato?
                   Accedi!</div> 
                   <Link className="mt-3 " to={"/"}>
                 <Button className="bg-dark border-2 border-white m-1 mx-5">Login!</Button>

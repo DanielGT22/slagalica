@@ -4,7 +4,7 @@ import "../../assets/css/Main.css"
 function Asosijacije() {
   const [randomContent, setRandomContent] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-
+  const [selectedFields, setSelectedFields] = useState([]);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -47,6 +47,9 @@ function Asosijacije() {
 
   return pairs;
   };
+  const handleFieldClick = (index) => {
+    setSelectedFields([...selectedFields, index]);
+  };
 
   return (
     <div className="d-flex flex-column">
@@ -63,14 +66,17 @@ function Asosijacije() {
             </Col>
             <Col xs={6}>
             <div className={`bg-dark border border-white border-2 mt-1 hover-effect-${"l" + pairIndex}`}>
-                <div className="border border-2 border-white bg-white text-center m-1">{pair[1]}</div>
+            <div
+                  className={`border border-2 border-white bg-white text-center m-1 ${selectedFields.includes(pairIndex) ? 'bg-success' : ''}`}
+                  onClick={() => handleFieldClick(pairIndex)}
+                >{pair[1]}</div>
               </div>
             </Col>
           </Row>
         ))}
       </Container>
       <div className='text-white text-center'>
-        <Button  onClick={() => window.location.href = "/home"} className='btn-dark text-white border border-white border-2'>Ritorna al Main Menu</Button>
+        <Button   type="button" onClick={() => window.location.href = "/home"} className='btn-dark text-white border border-white border-2'>Ritorna al Main Menu</Button>
         </div>
     </div>
  

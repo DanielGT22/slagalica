@@ -6,6 +6,7 @@ const Impostazioni = () => {
 	const token = localStorage.getItem("jwtToken");
 	const [loading, setLoading] = useState(true);
 	const [userName, setUserName] = useState("");
+	const [userUUID, setUserUUID] = useState("");
 	useEffect(() => {
 	  const token = localStorage.getItem("jwtToken");
 	
@@ -36,6 +37,26 @@ const Impostazioni = () => {
 	
 	  getUserInfo();
 	}, []);
+	const handleDeleteUser = async () => {
+		try {
+		  const response = await fetch(`http://localhost:3001/users/${userUUID}`, {
+			method: "DELETE",
+			headers: {
+			  "Content-type": "application/json",
+			  Authorization: `Bearer ${token}`,
+			},
+		  });
+	
+		  if (response.status === 204) {
+			// User deleted successfully, perform logout
+			removeToken();
+		  } else {
+			throw new Error("Error deleting user");
+		  }
+		} catch (error) {
+		  console.error(error);
+		}
+	  };
 
 	const index = 0;
 	useEffect(() => {
@@ -119,7 +140,7 @@ const Impostazioni = () => {
 			<button type="submit" class="btn btn-light  w-100 rounded rounded-pill" onClick={removeToken}>LogOut</button>
 			</Col>
 			<Col   xs={12} sm={6} className="pb-4 px-4">
-			<button type="submit" class="btn  btn-danger w-100 rounded rounded-pill border-black">Cancela Profilo</button>
+			<button type="submit" class="btn  btn-danger w-100 rounded rounded-pill border-black" onClick={handleDeleteUser}>Cancela Profilo</button>
 			</Col>
 			</Row>
 			

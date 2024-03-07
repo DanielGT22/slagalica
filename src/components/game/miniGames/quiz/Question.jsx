@@ -24,24 +24,36 @@ function Question({ questionData, onNext }) {
   return (
     <div className='text-white text-center d-flex justify-content-center '>
       <div className='w-75'>
-      <Row className='mb-4'>
+      <Row className='mb-4 '>
       <h3>{questionData.question}</h3>
       </Row>
       <Row className='mb-4'>
      
         <Col xs={12} md={6}>
-          <Button className='btn-dark border border-2 border-white w-50' onClick={() => handleOptionSelect(questionData.answer)}>  {questionData.answer}</Button>
+        <Button
+              className={`btn-dark border border-2 border-white w-50 ${selectedOption === questionData.answer ? 'bg-success' : ''}`}
+              onClick={() => handleOptionSelect(questionData.answer)}
+            >  {questionData.answer}</Button>
         </Col>
         <Col xs={12} md={6} >
-        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy1)}>  {questionData.decoy1}</Button>
+        <Button
+              className={`btn-dark border border-2 border-white w-50 ${selectedOption === questionData.decoy1 ? 'bg-success' : ''}`}
+              onClick={() => handleOptionSelect(questionData.decoy1)}
+            > {questionData.decoy1}</Button>
           </Col>
         </Row>
         <Row className='mb-4'>
         <Col xs={12} md={6} >
-        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy2)}>   {questionData.decoy2}</Button>
+        <Button
+              className={`btn-dark border border-2 border-white w-50 ${selectedOption === questionData.decoy2 ? 'bg-success' : ''}`}
+              onClick={() => handleOptionSelect(questionData.decoy2)}
+            >   {questionData.decoy2}</Button>
           </Col>
         <Col xs={12} md={6} >
-        <Button className='btn-dark border border-2 border-white w-50'onClick={() => handleOptionSelect(questionData.decoy3)}>   {questionData.decoy3}</Button>
+        <Button
+              className={`btn-dark border border-2 border-white w-50 ${selectedOption === questionData.decoy3 ? 'bg-success' : ''}`}
+              onClick={() => handleOptionSelect(questionData.decoy3)}
+            >  {questionData.decoy3}</Button>
           </Col>
         </Row>
       <Button className='btn-dark border-white ' onClick={handleSubmit}>Submit</Button>
